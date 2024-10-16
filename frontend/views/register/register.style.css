@@ -1,62 +1,107 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    }
+    
+    body {
+        background-image: url('../../assets/img/inicio.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+.card_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-top: 100px;
 }
 
-h1 {
+.card {
+    background-color: #ffffff96;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    width: 600px;
+        transform: rotate(2deg);
+    }
+    
+    h1 {
+        font-size: 36px;
     margin-bottom: 20px;
+    color: #000000;
+        transform: rotate(2deg);
 }
 
-.form-group {
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #000000;
+    transform: rotate(-3deg);
+}
+
+.input {
     margin-bottom: 15px;
+    text-align: left;
+        transform: rotate(-2deg);
 }
 
 label {
     display: block;
-    font-weight: bold;
+    font-size: 14px;
     margin-bottom: 5px;
+    color: #333;
 }
 
 input {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
-    width: 100%;
     padding: 10px;
-    background-color: #4CAF50;
-    color: white;
+        border: 1px solid #ffffff;
+        border-radius: 5px;
+        font-size: 16px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #66afe9;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.button_register {
+    background-color: #0dc004;
+    color: #fff;
     border: none;
-    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+        border-radius: 5px;
+        font-size: 16px;
     cursor: pointer;
+    transform: rotate(1deg);
 }
 
-button:hover {
-    background-color: #45a049;
+.button_register:hover {
+    background-color: #37d22f;
+    scale: 1.1;
+    transform: rotate(2deg);
+    transition: all 0.5s ease;
 }
 
-p {
+.login_button {
     margin-top: 15px;
-    text-align: center;
-    color: red;
+    font-size: 14px;
+}
+.login_button a {
+    color: #0dc004;
+    text-decoration: none;
+}
+
+.login_button a:hover {
+    text-decoration: underline;
 }
