@@ -8,7 +8,8 @@ dotenv.config();
 
 console.log(process.env.ACCESS_TOKEN_SECRET);
 
-const PORT = process.env.PORT || 3000;
+
+const PORT = process.env.PORT;
 const CORSURL = process.env.CORSURL || "http://localhost:4200";
 
 
@@ -22,11 +23,8 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-
-// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
 
-// parse application/json
 app.use(bodyParser.json())
 
 // Configuring the database
@@ -45,14 +43,8 @@ mongoose.connect(dbConfig.url, {
     process.exit();
 });
 
-// require('../routes/category.routes')(app);
-['category', 'job', 'carousel', 'contract', 'workingDay', 'province', 'auth', 'companyProfile'].forEach(
-    route => require(`../routes/${route}.routes`)(app)
-);
-
 require('../routes/auth.routes')(app);
-require('../routes/companyProfile.routes')(app);
-require('../routes/comment.routes')(app);
+
 
 app.listen(PORT, () => {
     console.log(`Servidor Express en el puerto ${PORT}`);
