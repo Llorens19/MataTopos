@@ -10,7 +10,7 @@ console.log(process.env.ACCESS_TOKEN_SECRET);
 
 
 const PORT = process.env.PORT;
-const CORSURL = process.env.CORSURL || "http://localhost:4200";
+const CORSURL = process.env.CORSURL || "http://127.0.0.1:5500";
 
 
 
