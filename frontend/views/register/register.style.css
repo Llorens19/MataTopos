@@ -2,12 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    }
-    
-    body {
-        background-image: url('../../assets/img/inicio.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
+}
+
+body {
+    background-image: url('../../assets/img/inicio.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,14 +30,14 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 600px;
-        transform: rotate(2deg);
+    transform: rotate(2deg);
     }
     
     h1 {
         font-size: 36px;
     margin-bottom: 20px;
     color: #000000;
-        transform: rotate(2deg);
+    transform: rotate(2deg);
 }
 
 h2 {
@@ -50,7 +50,7 @@ h2 {
 .input {
     margin-bottom: 15px;
     text-align: left;
-        transform: rotate(-2deg);
+    transform: rotate(-2deg);
 }
 
 label {
@@ -63,7 +63,7 @@ label {
 input {
     width: 100%;
     padding: 10px;
-        border: 1px solid #ffffff;
+    border: 1px solid #ffffff;
         border-radius: 5px;
         font-size: 16px;
 }
@@ -80,7 +80,7 @@ input:focus {
     border: none;
     padding: 10px;
     width: 100%;
-        border-radius: 5px;
+    border-radius: 5px;
         font-size: 16px;
     cursor: pointer;
     transform: rotate(1deg);
@@ -97,6 +97,7 @@ input:focus {
     margin-top: 15px;
     font-size: 14px;
 }
+
 .login_button a {
     color: #0dc004;
     text-decoration: none;
