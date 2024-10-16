@@ -1,0 +1,52 @@
+# Dependencias de Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Archivos de log
+*.log
+
+# Archivos de entorno
+.env
+.env.test
+.env.local
+.env.*.local
+
+# Directorios de testing y cobertura
+coverage/
+.nyc_output/
+
+# Archivos temporales del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de configuraciones locales de editores
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Archivos de construcción
+dist/
+build/
+
+# Archivos de configuración de paquetes
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Archivos de salida de compiladores/transpiladores
+*.tsbuildinfo
+out/
+
+# Directorios de caché
+.cache/
+.parcel-cache/
+
+# Otros archivos y directorios temporales
+tmp/
+temp/
