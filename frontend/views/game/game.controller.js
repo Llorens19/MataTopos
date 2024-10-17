@@ -1,8 +1,12 @@
-let lives = 0;
+let lives;
 let timer;
+let points;
+let speed;
 
 const startGame = () => {
+    points = 0;
     lives = 3;
+    speed = 3000;
     hideAllMoles();
     document.getElementById('play').style.display = 'none';
     randomMole();
@@ -27,10 +31,21 @@ const showMole = (idMole) => {
     }, 50);
 }
 
+const increasePoints = () => {
+    points = points + 100;
+    document.getElementById('points').innerText = points;
+    speed = speed - 100;
+}
+
 
 
 
 const hideMole = (idMole) => {
+    const visibleMoles = document.querySelectorAll('.img_corazon');
+    visibleMoles.forEach(mole => {
+        mole.replaceWith(mole.cloneNode(true));
+    });
+
     const img = document.getElementById(`topo_img_${idMole}`);
     img.src = '../../assets/img/saliendo.png';
     img.classList.remove('visible');
@@ -71,7 +86,7 @@ const randomMole = () => {
             setTimeout(() => {
                 randomMole();
             }, 1000);
-        }, 3000);
+        }, speed);
 
 
     } else {
@@ -89,6 +104,10 @@ const moleClick = () => {
         console.log(event.target.id);
         const id = event.target.id.split('_')[2];
         document.getElementById(`topo_img_${id}`).src = '../../assets/img/golpe.png';
+        const img = document.getElementById(`topo_img_${id}`);
+        img.classList.remove('visible');
+
+        increasePoints();
 
         setTimeout(() => {
             hideMole(id);
@@ -98,11 +117,12 @@ const moleClick = () => {
             randomMole();
         }, 1000);
 
+
+
         const visibleMoles = document.querySelectorAll('.img_corazon');
         visibleMoles.forEach(mole => {
             mole.replaceWith(mole.cloneNode(true));
         });
-
     });
 
 }
