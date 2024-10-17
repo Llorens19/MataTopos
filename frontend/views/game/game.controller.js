@@ -18,11 +18,11 @@ const buttons = () => {
 const showMole = (idMole) => {
     const img = document.getElementById(`topo_img_${idMole}`);
     img.src = '../../assets/img/saliendo.png'
-    img.classList.add('visible');
+
 
     setTimeout(() => {
         img.src = '../../assets/img/topo.png';
-
+        img.classList.add('visible');
         moleClick();
     }, 50);
 }
@@ -52,6 +52,11 @@ const hideAllMoles = () => {
     });
 }
 
+const discountLife = () => {
+    document.getElementById(`corazon_${lives}`).src = '../../assets/img/corazon_usado.png';
+    lives--;
+}
+
 
 
 const randomMole = () => {
@@ -61,7 +66,8 @@ const randomMole = () => {
 
         timer = setTimeout(() => {
             hideMole(moleId);
-            lives--;
+            discountLife();
+
             setTimeout(() => {
                 randomMole();
             }, 1000);
@@ -74,22 +80,28 @@ const randomMole = () => {
 }
 
 const moleClick = () => {
-
-    const visibleMoles = document.querySelectorAll('.visible');
+    const visibleMoles = document.querySelectorAll('.img_corazon');
     visibleMoles.forEach(mole => {
         mole.replaceWith(mole.cloneNode(true));
     });
-
     document.getElementsByClassName('visible')[0].addEventListener('click', (event) => {
         clearTimeout(timer);
         console.log(event.target.id);
         const id = event.target.id.split('_')[2];
-        hideMole(id);
+        document.getElementById(`topo_img_${id}`).src = '../../assets/img/golpe.png';
 
+        setTimeout(() => {
+            hideMole(id);
+        }, 500);
 
         setTimeout(() => {
             randomMole();
         }, 1000);
+
+        const visibleMoles = document.querySelectorAll('.img_corazon');
+        visibleMoles.forEach(mole => {
+            mole.replaceWith(mole.cloneNode(true));
+        });
 
     });
 

@@ -136,3 +136,16 @@ button {
     left: 1600px;
     z-index: 2;
 }
+.vidas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    padding: 10px;
+}
+
+.img_corazon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
