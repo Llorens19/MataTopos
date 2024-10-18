@@ -7,6 +7,9 @@ const startGame = () => {
     points = 0;
     lives = 3;
     speed = 3000;
+    document.getElementById('corazon_1').src = '../../assets/img/corazon.png';
+    document.getElementById('corazon_2').src = '../../assets/img/corazon.png';
+    document.getElementById('corazon_3').src = '../../assets/img/corazon.png';
     hideAllMoles();
     document.getElementById('play').style.display = 'none';
     randomMole();
@@ -90,7 +93,7 @@ const randomMole = () => {
 
 
     } else {
-        document.getElementById('play').style.display = 'show';
+        gameOver();
     }
 }
 
@@ -116,15 +119,18 @@ const moleClick = () => {
         setTimeout(() => {
             randomMole();
         }, 1000);
-
-
-
         const visibleMoles = document.querySelectorAll('.img_corazon');
         visibleMoles.forEach(mole => {
             mole.replaceWith(mole.cloneNode(true));
         });
     });
+}
 
+
+
+const gameOver = () => {
+    document.getElementById('play').style.display = '';
+    hideAllMoles();
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
