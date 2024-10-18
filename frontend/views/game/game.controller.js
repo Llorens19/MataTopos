@@ -23,19 +23,35 @@ const buttons = () => {
 
 
 const showMole = (idMole) => {
+    const goleden = isGolden();
     const img = document.getElementById(`topo_img_${idMole}`);
-    img.src = '../../assets/img/saliendo.png'
+    if (goleden) {
+        img.src = '../../assets/img/topo_dorado_saliendo.png'
+        setTimeout(() => {
+            img.src = '../../assets/img/topo_dorado.png';
+            img.classList.add('visible');
+            img.classList.add('golden');
+            moleClick();
+        }, 50);
 
 
-    setTimeout(() => {
-        img.src = '../../assets/img/topo.png';
-        img.classList.add('visible');
-        moleClick();
-    }, 50);
+    } else {
+
+        img.src = '../../assets/img/saliendo.png'
+        setTimeout(() => {
+            img.src = '../../assets/img/topo.png';
+            img.classList.add('visible');
+            moleClick();
+        }, 50);
+    }
 }
 
 const increasePoints = () => {
-    points = points + 100;
+    if (document.getElementsByClassName('visible')[0].classList.contains('golden')) {
+        points = points + 1000;
+    } else {
+        points = points + 100;
+    }
     document.getElementById('points').innerText = points;
     speed = speed - 100;
 }
@@ -52,6 +68,7 @@ const hideMole = (idMole) => {
     const img = document.getElementById(`topo_img_${idMole}`);
     img.src = '../../assets/img/saliendo.png';
     img.classList.remove('visible');
+    img.classList.remove('golden');
     setTimeout(() => {
         img.src = '../../assets/img/agujero.png';
     }, 50);
@@ -79,8 +96,8 @@ const discountLife = () => {
 
 const randomMole = () => {
     if (lives > 0) {
-    const moleId = Math.floor(Math.random() * 5) + 1;
-    showMole(moleId);
+        const moleId = Math.floor(Math.random() * 5) + 1;
+        showMole(moleId);
 
         timer = setTimeout(() => {
             hideMole(moleId);
@@ -97,6 +114,15 @@ const randomMole = () => {
     }
 }
 
+const isGolden = () => {
+    const random_6 = Math.floor(Math.random() * 6) + 1;
+    if (random_6 === 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 const moleClick = () => {
     const visibleMoles = document.querySelectorAll('.img_corazon');
     visibleMoles.forEach(mole => {
@@ -104,13 +130,19 @@ const moleClick = () => {
     });
     document.getElementsByClassName('visible')[0].addEventListener('click', (event) => {
         clearTimeout(timer);
+        increasePoints();
         console.log(event.target.id);
         const id = event.target.id.split('_')[2];
+        if (document.getElementById(`topo_img_${id}`).classList.contains('golden')) {
+            document.getElementById(`topo_img_${id}`).src = '../../assets/img/golpe_dorado.png';
+        } else {
         document.getElementById(`topo_img_${id}`).src = '../../assets/img/golpe.png';
+        }
         const img = document.getElementById(`topo_img_${id}`);
         img.classList.remove('visible');
+        img.classList.remove('golden');
 
-        increasePoints();
+
 
         setTimeout(() => {
             hideMole(id);
