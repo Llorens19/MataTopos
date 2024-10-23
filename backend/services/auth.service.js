@@ -24,6 +24,8 @@ const userLogin = async (params) => {
 const registerUser = async (params) => {
     const { user } = params;
 
+    console.log(params);
+
     if (!user || !user.email || !user.username || !user.password) {
         return resp(400, { message: "All fields are required" });
     }

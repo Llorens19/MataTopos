@@ -64,14 +64,24 @@ const hideMole = (idMole) => {
     visibleMoles.forEach(mole => {
         mole.replaceWith(mole.cloneNode(true));
     });
-
     const img = document.getElementById(`topo_img_${idMole}`);
-    img.src = '../../assets/img/saliendo.png';
+    const isGolden = img.classList.contains('golden');
     img.classList.remove('visible');
     img.classList.remove('golden');
-    setTimeout(() => {
-        img.src = '../../assets/img/agujero.png';
-    }, 50);
+
+    if (isGolden) {
+        img.src = '../../assets/img/topo_dorado_saliendo.png';
+        setTimeout(() => {
+            img.src = '../../assets/img/agujero.png';
+        }, 50);
+
+    } else {
+        img.src = '../../assets/img/saliendo.png';
+
+        setTimeout(() => {
+            img.src = '../../assets/img/agujero.png';
+        }, 50);
+    }
 }
 
 const hideAllMoles = () => {
@@ -140,7 +150,6 @@ const moleClick = () => {
         }
         const img = document.getElementById(`topo_img_${id}`);
         img.classList.remove('visible');
-        img.classList.remove('golden');
 
 
 
