@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
     <link rel="stylesheet" href="login.style.css">
+    <script src="login.controller.js"></script>
 </head>
 
 <body>
@@ -15,14 +16,14 @@
             <h2>Inicia Sesión</h2>
             <form>
                 <div class="input">
-                    <label for="email">Usuario</label>
+                    <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="input">
                     <label for="password">Contraseña</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <button type="submit" class="button_login">Iniciar Juego</button>
+                <button type="button" id="button_login" class="button_login">Iniciar Juego</button>
             </form>
             <p class="reg_button">¿No tienes cuenta? <a href="../register/register.view.html">Regístrate aquí</a></p>
         </div>

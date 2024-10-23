@@ -57,9 +57,10 @@ h2 {
 
 label {
     display: block;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 5px;
     color: #333;
+    font-weight: bold;
 }
 
 input {
@@ -107,4 +108,12 @@ input:focus {
 
 .register-text a:hover {
     text-decoration: underline;
+}
+
+error {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: red;
+    font-weight: bold;
 }

@@ -4,6 +4,7 @@ const asyncHandler = require('express-async-handler');
 
 const userLogin = asyncHandler(async (req, res) => {
     const { status, result } = await authService.userLogin(req.body);
+    console.log(req.body);
     return res.status(status).json(result);
 });
 
