@@ -24,6 +24,10 @@ const buttons = () => {
     document.getElementById('button_profile').addEventListener('click', () => {
         window.location.href = '../profile/profile.view.html';
     });
+    document.getElementById('skins').addEventListener('click', () => {
+        window.location.href = '../skins/skins.view.html';
+    }
+    );
 }
 
 
