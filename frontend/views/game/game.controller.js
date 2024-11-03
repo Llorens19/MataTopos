@@ -17,6 +17,13 @@ const startGame = () => {
 
 const buttons = () => {
     document.getElementById('play').addEventListener('click', startGame);
+    document.getElementById('logout').addEventListener('click', () => {
+        localStorage.clear();
+        window.location.href = '../login/login.view.html';
+    });
+    document.getElementById('button_profile').addEventListener('click', () => {
+        window.location.href = '../profile/profile.view.html';
+    });
 }
 
 
