@@ -93,10 +93,25 @@ const increaseCoins = async (req) => {
     return resp(200, { user: user.toUserResponse() });
 };
 
+
+const buySkin = async (req) => {
+    const { skin, price } = req.body;
+    console.log(req.body);
+    if (!skin || !price) return resp(400, { message: "Skin and Price are required" });
+    const user = await authRepo.findOneUser({ email: req.userEmail });
+    console.log(user);
+    if (user.coins < price) return resp(400, { message: "Not enough coins" });
+    user.coins -= price;
+    user.skins.push(skin);
+    await authRepo.updateUser(user);
+    return resp(200, { user: user.toUserResponse() });
+};
+
 module.exports = {
     userLogin,
     registerUser,
     getCurrentUser,
     updateUser,
-    increaseCoins
+    increaseCoins,
+    buySkin
 }

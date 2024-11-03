@@ -1,5 +1,5 @@
 const buySkin = (skin, price) => {
-    fetch(`/api/skins/buy`, {
+    fetch(`http://localhost:4000/user/buy`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -9,7 +9,14 @@ const buySkin = (skin, price) => {
     })
         .then(response => response.json())
         .then(data => {
-            window.location.reload();
+            console.log(data);
+            if (data.user) {
+                localStorage.setItem('user', JSON.stringify(data.user));
+                window.location.reload();
+            } else {
+                alert("No tienes suficientes monedas");
+            }
+
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -18,6 +25,7 @@ const buySkin = (skin, price) => {
 
 const userSkins = () => {
     const skins = JSON.parse(localStorage.getItem('user')).skins;
+
     skins.push(0);
 
 
@@ -25,15 +33,15 @@ const userSkins = () => {
         if (skins.indexOf(i) != -1) {
             document.getElementById('galeria').innerHTML += `
         <div class="tarjeta_skin">
-            <img src="../../assets/img/topo_0.png" alt="Skin 1" class="imagen_skin">
-            <button class="boton_selecionar" id='skin_${i}'>Selecionar</button>
+            <img src="../../assets/img/topo_${i}.png" alt="Skin 1" class="imagen_skin">
+            <button class="boton_selecionar" skin='${i}'>Selecionar</button>
         </div>`;
         } else {
             document.getElementById('galeria').innerHTML += `
         <div class="tarjeta_skin">
             <img src="../../assets/img/topo_${i}.png" alt="Skin 1" class="imagen_skin">
             <p class="precio_skin">$${i * 20}</p>
-            <button class="boton_comprar" id='skin_${i} price= "${i * 20}"'>Comprar</button>
+            <button class="boton_comprar" id="boton_comprar" skin='${i}' price= "${i * 20}"'>Comprar</button>
         </div>`;
         }
     }
@@ -55,11 +63,16 @@ const buttonBuy = () => {
     const buttons = document.querySelectorAll('.boton_comprar');
     buttons.forEach(button => {
         button.addEventListener('click', (event) => {
-            const skin = event.target.id.split('_')[1];
+            const skin = event.target.getAttribute('skin');
             const price = event.target.getAttribute('price');
+            console.log(skin, price);
             buySkin(skin, price);
         });
     });
+}
+
+const buttons = () => {
+    document.getElementById('boton_comprar').addEventListener('click', buttonBuy);
 }
 
 
@@ -68,5 +81,6 @@ const buttonBuy = () => {
 document.addEventListener('DOMContentLoaded', (event) => {
     userSkins();
     selectedSkin();
+    buttons();
 
 });

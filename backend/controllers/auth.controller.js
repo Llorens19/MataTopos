@@ -28,12 +28,18 @@ const increaseCoins = asyncHandler(async (req, res) => {
     return res.status(status).json(result);
 });
 
+const buySkin = asyncHandler(async (req, res) => {
+    const { status, result } = await authService.buySkin(req);
+    return res.status(status).json(result);
+});
+
 
 module.exports = {
     userLogin,
     registerUser,
     getCurrentUser,
     updateUser,
-    increaseCoins
+    increaseCoins,
+    buySkin
 
 }
