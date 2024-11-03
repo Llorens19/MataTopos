@@ -174,7 +174,30 @@ const gameOver = () => {
     hideAllMoles();
 }
 
+
+
+const getUser = () => {
+    fetch('http://localhost:4000/user', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${localStorage.getItem('token')}`
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('username').innerText = data.user.username;
+            document.getElementById('profile_img').src = data.user.image;
+        })
+        .catch(error => {
+            console.log(error);
+            window.location.href = '../login/login.view.html';
+        });
+}
+
+
 document.addEventListener('DOMContentLoaded', (event) => {
+    getUser();
     buttons();
 
 });
