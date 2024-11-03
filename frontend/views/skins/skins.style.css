@@ -137,3 +137,32 @@ body {
         grid-template-columns: 1fr;
     }
 }
+.boton_selecionado {
+    background-color: #4370eb;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.boton_selecionado:hover {
+    background-color: #265cf0;
+}
+
+.boton_selecionar {
+    background-color: #ffffff;
+    border: #4370eb solid 2px;
+    color: #4370eb;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.boton_selecionar:hover {
+    background-color: #a6bbf4;
+}

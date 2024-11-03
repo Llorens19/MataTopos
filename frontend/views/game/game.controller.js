@@ -204,7 +204,6 @@ const gameOver = () => {
         .catch(error => {
             console.log(error);
         });
-
 }
 
 
