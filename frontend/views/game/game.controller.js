@@ -211,7 +211,6 @@ const getUser = () => {
 document.addEventListener('DOMContentLoaded', (event) => {
     getUser();
     buttons();
-
 });
 
 if (localStorage.getItem('token') === null) {

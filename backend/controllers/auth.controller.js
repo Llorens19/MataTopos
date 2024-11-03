@@ -23,11 +23,17 @@ const updateUser = asyncHandler(async (req, res) => {
     return res.status(status).json(result);
 });
 
+const increaseCoins = asyncHandler(async (req, res) => {
+    const { status, result } = await authService.increaseCoins(req);
+    return res.status(status).json(result);
+});
+
 
 module.exports = {
     userLogin,
     registerUser,
     getCurrentUser,
-    updateUser
+    updateUser,
+    increaseCoins
 
 }

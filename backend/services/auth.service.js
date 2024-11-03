@@ -83,9 +83,20 @@ const updateUser = async (req) => {
 
 };
 
+
+const increaseCoins = async (req) => {
+    const { amount } = req.body;
+    if (!amount) return resp(400, { message: "Amount is required" });
+    const user = await authRepo.findOneUser({ email: req.userEmail });
+    user.coins += amount;
+    await authRepo.updateUser(user);
+    return resp(200, { user: user.toUserResponse() });
+};
+
 module.exports = {
     userLogin,
     registerUser,
     getCurrentUser,
-    updateUser
+    updateUser,
+    increaseCoins
 }
