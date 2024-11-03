@@ -36,7 +36,19 @@ const userSchema = new mongoose.Schema({
     followingUsers: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }]
+    }],
+    skins: [{
+        type: Number,
+        default: 0
+    }],
+    conins: {
+        type: Number,
+        default: 0
+    },
+    points: {
+        type: Number,
+        default: 0
+    }
 },
     {
         timestamps: true
