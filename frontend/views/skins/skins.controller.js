@@ -34,18 +34,18 @@ const userSkins = () => {
             document.getElementById('galeria').innerHTML += `
         <div class="tarjeta_skin">
             <img src="../../assets/img/topo_${i}.png" alt="Skin 1" class="imagen_skin">
-            <button class="boton_selecionar" skin='${i}'>Selecionar</button>
+            <button class="boton_selecionar"  id="skin_${i}" skin='${i}'>Selecionar</button>
         </div>`;
         } else {
             document.getElementById('galeria').innerHTML += `
         <div class="tarjeta_skin">
             <img src="../../assets/img/topo_${i}.png" alt="Skin 1" class="imagen_skin">
             <p class="precio_skin">$${i * 20}</p>
-            <button class="boton_comprar" id="boton_comprar" skin='${i}' price= "${i * 20}"'>Comprar</button>
+            <button class="boton_comprar" id="skin_${i}" skin='${i}' price= "${i * 20}"'>Comprar</button>
         </div>`;
         }
     }
-
+    checkSelectedSkin();
 }
 
 
@@ -72,7 +72,31 @@ const buttonBuy = () => {
 }
 
 const buttons = () => {
-    document.getElementById('boton_comprar').addEventListener('click', buttonBuy);
+    document.querySelectorAll('.boton_comprar').forEach(button => {
+        button.addEventListener('click', buttonBuy);
+    });
+}
+
+const selectSkin = () => {
+    const buttons = document.querySelectorAll('.boton_selecionar');
+    buttons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const skin = event.target.getAttribute('skin');
+            localStorage.setItem('skin', skin);
+            window.location.reload();
+        });
+    });
+}
+
+const checkSelectedSkin = () => {
+    const skin = localStorage.getItem('skin') || 0;
+    console.log(skin);
+    const skinElement = document.getElementById(`skin_${skin}`);
+    if (skinElement) {
+        skinElement.classList.remove('boton_selecionar', 'boton_comprar');
+        skinElement.classList.add('boton_selecionado');
+        skinElement.innerHTML = 'Selecionado';
+    }
 }
 
 
@@ -82,5 +106,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
     userSkins();
     selectedSkin();
     buttons();
-
+    selectSkin();
 });
