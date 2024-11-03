@@ -191,6 +191,7 @@ const getUser = () => {
         })
         .catch(error => {
             console.log(error);
+            localStorage.clear();
             window.location.href = '../login/login.view.html';
         });
 }
@@ -201,3 +202,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     buttons();
 
 });
+
+if (localStorage.getItem('token') === null) {
+    window.location.href = '../login/login.view.html';
+}

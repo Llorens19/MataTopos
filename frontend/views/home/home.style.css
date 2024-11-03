@@ -1,0 +1,131 @@
+/* Reset y configuración general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('../../assets/img/inicio.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Press Start 2P', sans-serif;
+    min-height: 100vh;
+}
+
+.container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 600px;
+    height: 30vh;
+    margin-top: 10vh;
+    padding: 20px;
+}
+
+
+.logo {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo h1 {
+    color: #000000;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.logo p {
+    color: #0e038f;
+    font-size: 1em;
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    flex-direction: row;
+}
+
+.register,
+.login {
+    background-color: red;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    width: 45%;
+    transition: transform 0.5s ease;
+    text-align: center;
+}
+
+.register {
+    background-color: red;
+}
+
+.login {
+    background-color: rgb(9, 255, 0);
+}
+
+button:hover {
+    transform: scale(1.1) rotate(3deg);
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        height: 65vh;
+    }
+
+    .logo h1 {
+        font-size: 1.8em;
+    }
+
+    .register,
+    .login {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .botones {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        height: 70vh;
+    }
+
+    .logo h1 {
+        font-size: 1.5em;
+    }
+
+    .logo p {
+        font-size: 0.9em;
+    }
+
+    .register,
+    .login {
+        font-size: 1.2em;
+        padding: 8px;
+        width: 100%;
+    }
+
+    .botones {
+        flex-direction: column;
+    }
+}

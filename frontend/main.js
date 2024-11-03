@@ -16,7 +16,7 @@ const verifyJWT = () => {
             .catch(error => console.error('Error:', error));
     } else {
         localStorage.removeItem('user');
-        window.location.href = 'views/login/login.view.html';
+        window.location.href = 'views/home/home.view.html';
     }
 }
 
