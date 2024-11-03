@@ -2,8 +2,10 @@ let lives;
 let timer;
 let points;
 let speed;
+let coins = 0;
 
 const startGame = () => {
+    coins = 0;
     points = 0;
     lives = 3;
     speed = 3000;
@@ -59,11 +61,14 @@ const showMole = (idMole) => {
 
 const increasePoints = () => {
     if (document.getElementsByClassName('visible')[0].classList.contains('golden')) {
-        points = points + 1000;
+        points = points + 200;
+        coins = coins + 2;
     } else {
         points = points + 100;
+        coins = coins + 1;
     }
     document.getElementById('points').innerText = points;
+    document.getElementById('coins').innerText = coins;
     speed = speed - 100;
 }
 
@@ -183,6 +188,23 @@ const moleClick = () => {
 const gameOver = () => {
     document.getElementById('play').style.display = '';
     hideAllMoles();
+    fetch('http://localhost:4000/user/coins', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${localStorage.getItem('token')}`
+        },
+        body: JSON.stringify({ amount: coins })
+    })
+        .then(response => response.json())
+        .then(data => {
+            localStorage.setItem('user', JSON.stringify(data.user));
+            console.log(data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
 }
 
 

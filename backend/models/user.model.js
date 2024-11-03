@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema({
         type: Number,
         default: 0
     }],
-    conins: {
+    coins: {
         type: Number,
         default: 0
     },
@@ -56,8 +56,6 @@ const userSchema = new mongoose.Schema({
 
 userSchema.plugin(uniqueValidator);
 
-// @desc generate access token for a user
-// @required valid email and password
 userSchema.methods.generateAccessToken = function () {
     const accessToken = jwt.sign({
         "user": {
@@ -78,6 +76,9 @@ userSchema.methods.toUserResponse = function () {
         email: this.email,
         bio: this.bio,
         image: this.image,
+        coins: this.coins,
+        points: this.points,
+        skins: this.skins,
         token: this.generateAccessToken()
     }
 };
