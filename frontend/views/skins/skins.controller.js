@@ -9,12 +9,7 @@ const buySkin = (skin, price) => {
     })
         .then(response => response.json())
         .then(data => {
-            if (data.success) {
-                alert('Skin comprada!');
-                window.location.reload();
-            } else {
-                alert('Erro ao comprar skin!');
-            }
+            window.location.reload();
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -56,6 +51,16 @@ const selectedSkin = () => {
     }
 }
 
+const buttonBuy = () => {
+    const buttons = document.querySelectorAll('.boton_comprar');
+    buttons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const skin = event.target.id.split('_')[1];
+            const price = event.target.getAttribute('price');
+            buySkin(skin, price);
+        });
+    });
+}
 
 
 
