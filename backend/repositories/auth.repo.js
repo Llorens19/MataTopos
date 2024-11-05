@@ -30,6 +30,10 @@ const findOneUser = async (params) => {
     return await User.findOne(params);
 };
 
+const getRanking = async () => {
+    return await User.find().sort({ points: -1 });
+};
+
 module.exports = {
     userLogin,
     registerUser,
@@ -37,5 +41,6 @@ module.exports = {
     updateUser,
     comparePassword,
     hashPassword,
-    findOneUser
+    findOneUser,
+    getRanking
 }

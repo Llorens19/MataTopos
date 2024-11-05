@@ -1,6 +1,5 @@
 const rankingData = () => {
-    let data_ranking = [];
-    fetch('http://localhost:4000/ranking', {
+    return fetch('http://localhost:4000/ranking', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -9,19 +8,17 @@ const rankingData = () => {
     })
         .then(response => response.json())
         .then(data => {
-            data_ranking = data
+            return data.ranking; 
         })
         .catch(error => {
             console.log(error);
         });
-    return data_ranking;
 }
 
 
 
 
 
-
-document.addEventListener('DOMContentLoaded', (event) => {
-
+document.addEventListener('DOMContentLoaded', async (event) => {
+    console.log(await rankingData());
 });

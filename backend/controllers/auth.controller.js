@@ -38,6 +38,11 @@ const savePoints = asyncHandler(async (req, res) => {
     return res.status(status).json(result);
 });
 
+const getRanking = asyncHandler(async (req, res) => {
+    const { status, result } = await authService.getRanking();
+    return res.status(status).json(result);
+});
+
 
 module.exports = {
     userLogin,
@@ -46,6 +51,7 @@ module.exports = {
     updateUser,
     increaseCoins,
     buySkin,
-    savePoints
+    savePoints,
+    getRanking
 
 }

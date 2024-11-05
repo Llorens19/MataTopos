@@ -117,6 +117,11 @@ const savePoints = async (req) => {
     return resp(200, { user: user.toUserResponse() });
 }
 
+const getRanking = async () => {
+    const ranking = await authRepo.getRanking();
+    return resp(200, { ranking });
+};
+
 module.exports = {
     userLogin,
     registerUser,
@@ -124,5 +129,6 @@ module.exports = {
     updateUser,
     increaseCoins,
     buySkin,
-    savePoints
+    savePoints,
+    getRanking
 }
