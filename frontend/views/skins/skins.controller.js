@@ -99,6 +99,11 @@ const checkSelectedSkin = () => {
     }
 }
 
+const loadCoine = () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    document.getElementById('coins').innerHTML = user.coins;
+}
+
 
 
 
@@ -107,4 +112,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
     selectedSkin();
     buttons();
     selectSkin();
+    loadCoine();
 });

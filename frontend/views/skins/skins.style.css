@@ -166,3 +166,15 @@ body {
 .boton_selecionar:hover {
     background-color: #a6bbf4;
 }
+.img_coin {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.monedas {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    margin-right: 40px;
+}

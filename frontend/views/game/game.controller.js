@@ -3,12 +3,16 @@ let timer;
 let points;
 let speed;
 let coins = 0;
+const skin = localStorage.getItem('skin') || 0;
 
 const startGame = () => {
     coins = 0;
     points = 0;
     lives = 3;
     speed = 3000;
+    document.getElementById('points').innerText = points;
+    document.getElementById('coins').innerText = coins;
+
     document.getElementById('corazon_1').src = '../../assets/img/corazon.png';
     document.getElementById('corazon_2').src = '../../assets/img/corazon.png';
     document.getElementById('corazon_3').src = '../../assets/img/corazon.png';
@@ -50,9 +54,9 @@ const showMole = (idMole) => {
 
     } else {
 
-        img.src = '../../assets/img/saliendo.png'
+        img.src = `../../assets/img/saliendo_${skin}.png`;
         setTimeout(() => {
-            img.src = '../../assets/img/topo.png';
+            img.src = `../../assets/img/topo_${skin}.png`;
             img.classList.add('visible');
             moleClick();
         }, 50);
@@ -92,7 +96,7 @@ const hideMole = (idMole) => {
         }, 50);
 
     } else {
-        img.src = '../../assets/img/saliendo.png';
+        img.src = `../../assets/img/saliendo_${skin}.png`;
 
         setTimeout(() => {
             img.src = '../../assets/img/agujero.png';
@@ -104,7 +108,7 @@ const hideAllMoles = () => {
     const visibleMoles = document.querySelectorAll('.visible');
 
     visibleMoles.forEach(mole => {
-        mole.src = '../../assets/img/saliendo.png'
+        mole.src = `../../assets/img/saliendo_${skin}.png`;
 
         setTimeout(() => {
             mole.src = '../../assets/img/agujero.png';
@@ -162,7 +166,7 @@ const moleClick = () => {
         if (document.getElementById(`topo_img_${id}`).classList.contains('golden')) {
             document.getElementById(`topo_img_${id}`).src = '../../assets/img/golpe_dorado.png';
         } else {
-        document.getElementById(`topo_img_${id}`).src = '../../assets/img/golpe.png';
+            document.getElementById(`topo_img_${id}`).src = `../../assets/img/golpe_${skin}.png`;
         }
         const img = document.getElementById(`topo_img_${id}`);
         img.classList.remove('visible');
