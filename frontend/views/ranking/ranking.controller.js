@@ -15,10 +15,38 @@ const rankingData = () => {
         });
 }
 
+const rankingTable = async () => {
+    const ranking = await rankingData();
+    console.log(ranking);
+    const tbody = document.querySelector('.cuerpo_tabla');
+    tbody.innerHTML = '';
+
+    ranking.forEach((player, index) => {
+        const row = document.createElement('tr');
+        row.classList.add('fila_jugador');
+
+        row.innerHTML = `
+            <td class="posicion">${index + 1}</td>
+            <td class="imagen">
+                <img src="${player.image}" class = "img_player" alt="imagen${index + 1}">
+            </td>
+            <td class="nombre_jugador">${player.username}</td>
+            <td class="puntaje">${player.points}</td>
+            <td class="monedas">
+                <div class="contenedor_monedas">
+                    <p>${player.coins}</p>
+                    <img src="../../assets/img/moneda.png" class = "img_moneda" alt="moneda">
+                </div>
+            </td>
+        `;
+
+        tbody.appendChild(row);
+    });
+}
 
 
 
 
 document.addEventListener('DOMContentLoaded', async (event) => {
-    console.log(await rankingData());
+    rankingTable();
 });
