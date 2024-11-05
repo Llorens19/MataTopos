@@ -4,15 +4,17 @@
     box-sizing: border-box;
     user-select: none;
     -webkit-user-select: none;
-        -moz-user-select: none;
+    -moz-user-select: none;
         -ms-user-select: none;
-    }
-    
-    img {
-        -webkit-user-drag: none;
-        -khtml-user-drag: none;
-        -moz-user-drag: none;
-        -o-user-drag: none;
+    font-family: 'Press Start 2P', sans-serif;
+        font-size: 10px;
+}
+
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
 }
 
 body {
@@ -40,7 +42,7 @@ button {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-
+    background: linear-gradient(90deg, rgba(48, 136, 7, 0.5) 0%, rgba(245, 11, 27, 0.5) 100%);
 }
 
 .username {
@@ -58,6 +60,7 @@ button {
     margin-right: 10px;
 }
 
+
 .profile_img {
     width: 50px;
     height: 50px;
@@ -67,18 +70,14 @@ button {
     justify-content: center;
     align-items: center;
     margin-right: 10px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .username {
-    font-size: 18px;
+    font-size: 12px;
 }
 
-.logout {
-    border: 2px solid black;
-    padding: 5px 10px;
-    cursor: pointer;
-}
+
 
 
 .container {
@@ -93,9 +92,10 @@ button {
     border-radius: 20px;
     color: #ffffff;
     padding: 20px 50px;
-    font-size: 60px;
+    font-size: 40px;
     cursor: pointer;
     z-index: 400;
+    filter: drop-shadow(0 0 10px red);
 }
 
 .play:hover {
@@ -161,26 +161,25 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
     padding: 10px;
 }
 
 .img_corazon {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+        height: 30px;
     margin-right: 10px;
 }
 
 .points {
-    font-size: 40px;
+    font-size: 20px;
     width: 100px;
 }
 
 .coins {
     width: 100px;
-    font-size: 40px;
+    font-size: 20px;
     display: flex;
-        align-items: center;
+    align-items: center;
         justify-items: center;
 }
 
@@ -195,11 +194,17 @@ button {
     background-color: #0dc004;
     color: #fff;
     border: none;
-    padding: 4px;
     margin-right: 20px;
-    border-radius: 5px;
-    font-size: 16px;
+    font-size: 12px;
     cursor: pointer;
+    box-shadow: 0 0 50px green;
+        border-radius: 30px;
+    }
+    
+    .button_profile:hover {
+        scale: 1.1;
+        transform: rotate(3deg);
+        transition: all 0.5s ease;
 }
 
 .logout {
@@ -207,13 +212,56 @@ button {
     color: #fff;
     border: none;
     padding: 20px;
-    border-radius: 5px;
-    font-size: 16px;
+    font-size: 12px;
     cursor: pointer;
+    box-shadow: 0 0 50px red;
+        border-radius: 30px;
+    }
 
+.logout:hover {
+    scale: 1.1;
+    transform: rotate(3deg);
+    transition: all 0.5s ease;
 }
+
 .img_coin {
-    width: 50px;
-    height: 50px;
-    margin-left: 10px;
+    width: 30px;
+        height: 30px;
+        filter: drop-shadow(0 0 10px yellow);
+    }
+    
+    .skins {
+        background-color: #0a04c0;
+        color: #fff;
+        border: none;
+        padding: 20px;
+        z-index: 400;
+        font-size: 12px;
+        cursor: pointer;
+        box-shadow: 0 0 50px rgb(0, 34, 128);
+        border-radius: 30px;
+    }
+    
+    .skins:hover {
+        scale: 1.1;
+        transform: rotate(3deg);
+        transition: all 0.5s ease;
+    }
+    
+    .ranking {
+        background-color: #ff02fb;
+        color: #fff;
+        border: none;
+        padding: 20px;
+        z-index: 400;
+        font-size: 12px;
+        cursor: pointer;
+        box-shadow: 0 0 50px rgb(124, 0, 128);
+        border-radius: 30px;
+    }
+    
+    .ranking:hover {
+        scale: 1.1;
+        transform: rotate(3deg);
+        transition: all 0.5s ease;
 }

@@ -13,6 +13,9 @@ const startGame = () => {
     document.getElementById('points').innerText = points;
     document.getElementById('coins').innerText = coins;
 
+    document.getElementById('ranking').style.display = 'none';
+    document.getElementById('skins').style.display = 'none';
+
     document.getElementById('corazon_1').src = '../../assets/img/corazon.png';
     document.getElementById('corazon_2').src = '../../assets/img/corazon.png';
     document.getElementById('corazon_3').src = '../../assets/img/corazon.png';
@@ -208,6 +211,9 @@ const gameOver = () => {
         .catch(error => {
             console.log(error);
         });
+
+    document.getElementById('ranking').style.display = 'block';
+    document.getElementById('skins').style.display = 'block';
 }
 
 
