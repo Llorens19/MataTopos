@@ -35,8 +35,11 @@ const buttons = () => {
     });
     document.getElementById('skins').addEventListener('click', () => {
         window.location.href = '../skins/skins.view.html';
-    }
-    );
+    });
+
+    document.getElementById('ranking').addEventListener('click', () => {
+        window.location.href = '../ranking/ranking.view.html';
+    });
 }
 
 

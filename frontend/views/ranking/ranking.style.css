@@ -1,0 +1,80 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.encabezado {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.titulo_principal {
+    margin: 0;
+    font-size: 2em;
+}
+
+.contenido_principal {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.seccion_ranking {
+    width: 80%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.tabla_ranking {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.encabezado_tabla th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.cuerpo_tabla .fila_jugador:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.cuerpo_tabla .fila_jugador:hover {
+    background-color: #ddd;
+}
+
+.posicion,
+.nombre_jugador,
+.puntaje {
+    padding: 10px;
+    text-align: left;
+}
+
+.columna_posicion,
+.columna_jugador,
+.columna_puntaje {
+    width: 33%;
+}
+
+.pie_pagina {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.texto_pie {
+    margin: 0;
+}
