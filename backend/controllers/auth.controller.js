@@ -33,6 +33,11 @@ const buySkin = asyncHandler(async (req, res) => {
     return res.status(status).json(result);
 });
 
+const savePoints = asyncHandler(async (req, res) => {
+    const { status, result } = await authService.savePoints(req);
+    return res.status(status).json(result);
+});
+
 
 module.exports = {
     userLogin,
@@ -40,6 +45,7 @@ module.exports = {
     getCurrentUser,
     updateUser,
     increaseCoins,
-    buySkin
+    buySkin,
+    savePoints
 
 }

@@ -107,11 +107,22 @@ const buySkin = async (req) => {
     return resp(200, { user: user.toUserResponse() });
 };
 
+const savePoints = async (req) => {
+    const { points } = req.body;
+    if (!points) return resp(400, { message: "Points are required" });
+    const user = await authRepo.findOneUser({ email: req.userEmail });
+    if (user.points > points) return resp(400, { message: "Your points are higher than the current points" });
+    user.points = points;
+    await authRepo.updateUser(user);
+    return resp(200, { user: user.toUserResponse() });
+}
+
 module.exports = {
     userLogin,
     registerUser,
     getCurrentUser,
     updateUser,
     increaseCoins,
-    buySkin
+    buySkin,
+    savePoints
 }

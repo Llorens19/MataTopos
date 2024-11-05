@@ -198,6 +198,14 @@ const moleClick = () => {
 const gameOver = () => {
     document.getElementById('play').style.display = '';
     hideAllMoles();
+    saveCoins();
+    savePoints();
+    document.getElementById('ranking').style.display = 'block';
+    document.getElementById('skins').style.display = 'block';
+}
+
+
+const saveCoins = () => {
     fetch('http://localhost:4000/user/coins', {
         method: 'PUT',
         headers: {
@@ -214,10 +222,28 @@ const gameOver = () => {
         .catch(error => {
             console.log(error);
         });
-
-    document.getElementById('ranking').style.display = 'block';
-    document.getElementById('skins').style.display = 'block';
 }
+
+const savePoints = () => {
+    fetch('http://localhost:4000/user/points', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${localStorage.getItem('token')}`
+        },
+        body: JSON.stringify({ points: points })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.user) {
+                localStorage.setItem('user', JSON.stringify(data.user));
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+
 
 
 
