@@ -10,7 +10,7 @@ body {
 }
 
 .encabezado {
-    background-color: #4CAF50;
+    background-color: #000;
     color: white;
     padding: 20px;
     text-align: center;
@@ -41,7 +41,7 @@ body {
 }
 
 .encabezado_tabla th {
-    background-color: #4CAF50;
+    background-color: #000;
     color: white;
     padding: 10px;
     text-align: left;

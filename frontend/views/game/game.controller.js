@@ -31,6 +31,7 @@ const buttons = () => {
         window.location.href = '../login/login.view.html';
     });
     document.getElementById('button_profile').addEventListener('click', () => {
+        localStorage.setItem('userProfile', localStorage.getItem('user'));
         window.location.href = '../profile/profile.view.html';
     });
     document.getElementById('skins').addEventListener('click', () => {

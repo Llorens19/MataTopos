@@ -1,5 +1,5 @@
 const loadProfile = () => {
-    const data = JSON.parse(localStorage.getItem('user'));
+    const data = JSON.parse(localStorage.getItem('userProfile'));
     console.log(data);
     document.getElementById('username').innerText = data.username;
     document.getElementById('img_profile').src = data.image;
@@ -9,7 +9,7 @@ const loadProfile = () => {
 }
 
 const loadSkins = () => {
-    const data = JSON.parse(localStorage.getItem('user'));
+    const data = JSON.parse(localStorage.getItem('userProfile'));
     const skins = data.skins;
 
     skins.unshift(0);
@@ -19,9 +19,6 @@ const loadSkins = () => {
     }).join('');
     document.getElementById('skins').innerHTML += html_skins;
 }
-
-
-
 
 document.addEventListener('DOMContentLoaded', (event) => {
     loadProfile();

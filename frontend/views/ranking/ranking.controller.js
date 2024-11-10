@@ -42,11 +42,37 @@ const rankingTable = async () => {
 
         tbody.appendChild(row);
     });
+    viewUserProfile();
 }
 
+const viewUserProfile = () => {
+    document.querySelectorAll('.fila_jugador').forEach(row => {
+        row.addEventListener('click', () => {
+            console.log(row);
+            const username = row.querySelector('.nombre_jugador').textContent;
+            fetch(`http://localhost:4000/user/profile/${username}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Token ${localStorage.getItem('token')}`
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    localStorage.setItem('userProfile', JSON.stringify(data.user));
+                    window.location.href = '../profile/profile.view.html';
+                })
+                .catch(error => {
+                    console.log(error);
+                }
+            );
+        });
+    });
+}
 
 
 
 document.addEventListener('DOMContentLoaded', async (event) => {
     rankingTable();
+    
 });

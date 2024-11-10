@@ -122,6 +122,14 @@ const getRanking = async () => {
     return resp(200, { ranking });
 };
 
+
+const getUser = async (req) => {
+    const { username } = req.params;
+    const user = await authRepo.findOneUser({ username });
+    if (!user) return resp(404, { message: "User Not Found" });
+    return resp(200, { user: user.toUserResponse() });
+}
+
 module.exports = {
     userLogin,
     registerUser,
@@ -130,5 +138,6 @@ module.exports = {
     increaseCoins,
     buySkin,
     savePoints,
-    getRanking
+    getRanking,
+    getUser
 }

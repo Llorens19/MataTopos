@@ -1,5 +1,5 @@
 module.exports = (app) => {
-    const { userLogin, registerUser, getCurrentUser, updateUser, increaseCoins, buySkin, savePoints, getRanking } = require('../controllers/auth.controller.js');
+    const { userLogin, registerUser, getCurrentUser, updateUser, increaseCoins, buySkin, savePoints, getRanking, getUser } = require('../controllers/auth.controller.js');
     const verifyJWT = require('../middleware/verifyJWT.js');
 
     app.post('/users/login', userLogin);
@@ -17,5 +17,7 @@ module.exports = (app) => {
     app.get('/ranking', verifyJWT, getRanking);
 
     app.put('/user/points', verifyJWT, savePoints);
+    
+    app.get('/user/profile/:username', getUser);
 
 }
