@@ -1,95 +1,168 @@
-body {
-    background-color: #f0f0f0;
-    width: 100%;
+body,
+html {
+    margin: 0;
+    padding: 0;
     height: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    font-family: 'Press Start 2P', sans-serif;
+    background: linear-gradient(135deg, #ffffff, #000000);
+    color: #fcd600;
 }
 
-.targeta {
-    margin-top: 30px;
-    background-color: #ffffff;
-    border: 1px solid #bab2b2;
-    border-radius: 10px;
-    height: auto;
-    width: 900px;
+.fondo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.contenedor_perfil {
+    background-color: rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 40px 30px;
+    text-align: center;
+    width: 90vh;
+    max-width: 90%;
+    height: 70%;
+    color: #fcd600;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-
-
-.baner {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: #145c14;
-    width: 100%;
-    height: 30%;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 0;
-    padding: 30px 0;
 }
 
-.baner img {
+.imagen_usuario img {
     width: 200px;
+    max-width: 70%;
     height: auto;
     border-radius: 50%;
-    border: 5px solid #5aa45a;
+    object-fit: cover;
+    border: 3px solid #fcd600;
+    margin-bottom: 20px;
 }
 
-
-.targeta h1 {
-    color: #145c14;
-    font-size: 30px;
-    margin: 0;
+.info_usuario {
+    margin-top: 10px;
 }
 
-.contenido {
-    width: 80%;
+.nombre_usuario {
+    font-size: 1.8em;
+    margin: 10px 0;
+    color: #fcd600;
+}
+
+.correo_usuario {
+    font-size: 1em;
+    color: #241f01;
+    margin-bottom: 30px;
+}
+
+.estadisticas_usuario {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    justify-content: center;
 }
 
-.habilidad {
-    width: auto;
+.monedas_usuario,
+.puntos_usuario {
+    font-size: 1em;
+}
+
+.monedas,
+.puntos {
+    font-weight: bold;
+    color: #fcd600;
+    margin: 20px;
+    color: #241f01;
+}
+
+.skins {
+    margin: 0;
+    padding: 0;
+}
+
+.img_skin {
+    width: 80px;
+    height: auto;
+    margin: 0;
+    filter: drop-shadow(0 0 10px #fcd600);
+}
+
+.div_monedas {
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
-.habilidad span {
-    margin: 10px 20px 40px 20px;
-    color: #000000;
-    font-size: 20px;
-    background-color: #145c14;
-    padding: 10px;
-    border-radius: 10px;
-    color: white;
-
+.img_coin {
+    width: 20px;
+    height: auto;
 }
 
-p {
-    display: inline;
-    font-size: 20px;
-    color: #000000;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 0;
+.text_coins,
+.text_points {
+    font-size: 1em;
+    color: #fcd600;
+    margin: 0 0 10px;
 }
 
-.habilidad span:hover {
-    background-color: #1e961e;
-    scale: 1.1;
+
+@media (max-width: 768px) {
+    .contenedor_perfil {
+        width: 80%;
+        padding: 20px;
+        height: auto;
+    }
+
+    .nombre_usuario {
+        font-size: 1.4em;
+    }
+
+    .correo_usuario {
+        font-size: 0.9em;
+    }
+
+    .img_skin {
+        width: 60px;
+    }
+
+    .monedas,
+    .puntos {
+        margin: 10px;
+    }
 }
 
-h3 {
-    margin-top: 40px;
-    margin-bottom: 0;
+@media (max-width: 480px) {
+    .contenedor_perfil {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .nombre_usuario {
+        font-size: 1.2em;
+    }
+
+    .correo_usuario {
+        font-size: 0.8em;
+    }
+
+    .imagen_usuario img {
+        width: 150px;
+    }
+
+    .img_skin {
+        width: 50px;
+    }
+
+    .monedas,
+    .puntos {
+        font-size: 0.9em;
+        margin: 5px;
+    }
 }

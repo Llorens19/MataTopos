@@ -1,28 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
     <link rel="stylesheet" href="profile.style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="profile.controller.js"></script>
-    <title>Document</title>
 </head>
 
 <body>
-    <div class="targeta">
-        <div class="baner">
-            <img class="img_profile" id="img_profile" alt="1">
-        </div>
-
-        <div class="contenido">
-            <h2 id="username"></h2>
-            <p id="email"></p>
-            <h3>Skins</h3>
-            <div class="skins">
-
+    <div class="fondo">
+        <div class="contenedor_perfil">
+            <div class="imagen_usuario">
+                <img src="" id="img_profile" alt="Imagen del usuario">
             </div>
-
+            <div class="info_usuario">
+                <h2 id="username" class="nombre_usuario">Nombre de Usuario</h2>
+                <p id="email" class="correo_usuario">usuario@gmail.com</p>
+                <div class="estadisticas_usuario">
+                    <div class="puntos">
+                        <div class = "text_points">Puntos: </div>
+                        <div id="points" class="cantidad_puntos">1000</div>
+                    </div>
+                    <div class="monedas">
+                        <div class="text_coins">Monedas: </div>
+                        <div class="div_monedas">
+                            <div class="cantidad_monedas" id="coins">1000</div>
+                            <img src="../../assets/img/moneda.png" class = "img_coin" alt />
+                        </div>
+                    </div>
+                </div>
+                <div class="skins" id="skins">
+                    <h3 class="titulo_skins">Skins</h3>
+                </div>
+            </div>
         </div>
     </div>
 </body>
