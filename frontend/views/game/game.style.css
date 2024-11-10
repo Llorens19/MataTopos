@@ -4,10 +4,18 @@
     box-sizing: border-box;
     -webkit-user-select: none;
     -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     font-family: 'Press Start 2P', sans-serif;
-        font-size: 10px;
+    font-size: 10px;
+    color: #fff;
+    cursor: url('../../assets/img/martillo.png'), auto !important;
+    
+
+}
+
+*:active {
+    cursor: url('../../assets/img/martillo_golepeando.png'), auto !important;
 }
 
 img {
@@ -16,6 +24,7 @@ img {
     -moz-user-drag: none;
     -o-user-drag: none;
 }
+
 
 body {
 
@@ -32,7 +41,7 @@ body {
 button {
     background-color: transparent;
     border: none;
-    cursor: pointer;
+
     font-family: inherit;
     padding: 0;
 }
@@ -42,7 +51,7 @@ button {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: linear-gradient(90deg, rgba(48, 136, 7, 0.5) 0%, rgba(245, 11, 27, 0.5) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0) 0%, rgb(56, 51, 51) 100%);
 }
 
 .username {
@@ -93,7 +102,7 @@ button {
     color: #ffffff;
     padding: 20px 50px;
     font-size: 40px;
-    cursor: pointer;
+
     z-index: 400;
     filter: drop-shadow(0 0 10px red);
 }
@@ -166,7 +175,7 @@ button {
 
 .img_corazon {
     width: 30px;
-        height: 30px;
+    height: 30px;
     margin-right: 10px;
 }
 
@@ -180,7 +189,7 @@ button {
     font-size: 20px;
     display: flex;
     align-items: center;
-        justify-items: center;
+    justify-items: center;
 }
 
 .card_user {
@@ -196,15 +205,15 @@ button {
     border: none;
     margin-right: 20px;
     font-size: 12px;
-    cursor: pointer;
+
     box-shadow: 0 0 50px green;
-        border-radius: 30px;
-    }
-    
-    .button_profile:hover {
-        scale: 1.1;
-        transform: rotate(3deg);
-        transition: all 0.5s ease;
+    border-radius: 30px;
+}
+
+.button_profile:hover {
+    scale: 1.1;
+    transform: rotate(3deg);
+    transition: all 0.5s ease;
 }
 
 .logout {
@@ -213,10 +222,10 @@ button {
     border: none;
     padding: 20px;
     font-size: 12px;
-    cursor: pointer;
+
     box-shadow: 0 0 50px red;
-        border-radius: 30px;
-    }
+    border-radius: 30px;
+}
 
 .logout:hover {
     scale: 1.1;
@@ -226,42 +235,41 @@ button {
 
 .img_coin {
     width: 30px;
-        height: 30px;
-        filter: drop-shadow(0 0 10px yellow);
-    }
-    
-    .skins {
-        background-color: #0a04c0;
-        color: #fff;
-        border: none;
-        padding: 20px;
-        z-index: 400;
-        font-size: 12px;
-        cursor: pointer;
-        box-shadow: 0 0 50px rgb(0, 34, 128);
-        border-radius: 30px;
-    }
-    
-    .skins:hover {
-        scale: 1.1;
-        transform: rotate(3deg);
-        transition: all 0.5s ease;
-    }
-    
-    .ranking {
-        background-color: #ff02fb;
-        color: #fff;
-        border: none;
-        padding: 20px;
-        z-index: 400;
-        font-size: 12px;
-        cursor: pointer;
-        box-shadow: 0 0 50px rgb(124, 0, 128);
-        border-radius: 30px;
-    }
-    
-    .ranking:hover {
-        scale: 1.1;
-        transform: rotate(3deg);
-        transition: all 0.5s ease;
+    height: 30px;
+    filter: drop-shadow(0 0 10px yellow);
+}
+
+.skins {
+    background-color: #0a04c0;
+    color: #fff;
+    border: none;
+    padding: 20px;
+    z-index: 400;
+    font-size: 12px;
+
+    box-shadow: 0 0 50px rgb(0, 34, 128);
+    border-radius: 30px;
+}
+
+.skins:hover {
+    scale: 1.1;
+    transform: rotate(3deg);
+    transition: all 0.5s ease;
+}
+
+.ranking {
+    background-color: #ff02fb;
+    color: #fff;
+    border: none;
+    padding: 20px;
+    z-index: 400;
+    font-size: 12px;
+    box-shadow: 0 0 50px rgb(124, 0, 128);
+    border-radius: 30px;
+}
+
+.ranking:hover {
+    scale: 1.1;
+    transform: rotate(3deg);
+    transition: all 0.5s ease;
 }
