@@ -84,6 +84,7 @@ userSchema.methods.toUserResponse = function () {
         coins: this.coins,
         points: this.points,
         skins: this.skins,
+        hammers: this.hammers,
         token: this.generateAccessToken()
     }
 };
