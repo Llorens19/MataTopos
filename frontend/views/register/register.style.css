@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #361f01;
 }
 
 body {
@@ -24,27 +26,28 @@ body {
 }
 
 .card {
-    background-color: #ffffff96;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 130px;
     text-align: center;
-    width: 600px;
+    width: 80vh;
     transform: rotate(2deg);
-    }
-    
-    h1 {
-        font-size: 36px;
+    background-image: url('../../assets/img/tableros.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+
+h1 {
+    font-size: 36px;
     margin-bottom: 20px;
-    color: #000000;
-    transform: rotate(2deg);
+
+    transform: rotate(-2deg);
 }
 
 h2 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #000000;
-    transform: rotate(-3deg);
+
+    transform: rotate(-2deg);
 }
 
 .input {
@@ -57,7 +60,6 @@ label {
     display: block;
     font-size: 16px;
     margin-bottom: 5px;
-    color: #333;
     font-weight: bold;
 }
 
@@ -65,8 +67,8 @@ input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ffffff;
-        border-radius: 5px;
-        font-size: 16px;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 input:focus {
@@ -82,15 +84,15 @@ input:focus {
     padding: 10px;
     width: 100%;
     border-radius: 5px;
-        font-size: 16px;
+    font-size: 16px;
     cursor: pointer;
-    transform: rotate(1deg);
+    transform: rotate(-2deg);
 }
 
 .button_register:hover {
     background-color: #37d22f;
     scale: 1.1;
-    transform: rotate(2deg);
+    transform: rotate(-1deg);
     transition: all 0.5s ease;
 }
 
@@ -107,6 +109,7 @@ input:focus {
 .login_button a:hover {
     text-decoration: underline;
 }
+
 error {
     display: block;
     font-size: 16px;

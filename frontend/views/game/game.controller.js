@@ -259,7 +259,7 @@ const getUser = () => {
         .then(response => response.json())
         .then(data => {
             document.getElementById('username').innerText = data.user.username;
-            document.getElementById('profile_img').src = data.user.image;
+            document.getElementById('profile_img').src = `../../assets/profiles/${data.user.image}`;
         })
         .catch(error => {
             console.log(error);

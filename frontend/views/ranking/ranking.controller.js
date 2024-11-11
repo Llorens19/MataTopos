@@ -28,7 +28,7 @@ const rankingTable = async () => {
         row.innerHTML = `
             <td class="posicion">${index + 1}</td>
             <td class="imagen">
-                <img src="${player.image}" class = "img_player" alt="imagen${index + 1}">
+                <img src="../../assets/profiles/${player.image}" class = "img_player" alt="imagen${index + 1}">
             </td>
             <td class="nombre_jugador">${player.username}</td>
             <td class="puntaje">${player.points}</td>
