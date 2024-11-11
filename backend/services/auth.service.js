@@ -130,6 +130,17 @@ const getUser = async (req) => {
     return resp(200, { user: user.toUserResponse() });
 }
 
+const buyHammer = async (req) => {
+    const { hammer, price } = req.body;
+    if (!hammer || !price) return resp(400, { message: "Hammer and Price are required" });
+    const user = await authRepo.findOneUser({ email: req.userEmail });
+    if (user.coins < price) return resp(400, { message: "Not enough coins" });
+    user.coins -= price;
+    user.hammers.push(hammer);
+    await authRepo.updateUser(user);
+    return resp(200, { user: user.toUserResponse() });
+}
+
 module.exports = {
     userLogin,
     registerUser,
@@ -139,5 +150,6 @@ module.exports = {
     buySkin,
     savePoints,
     getRanking,
-    getUser
+    getUser,
+    buyHammer
 }

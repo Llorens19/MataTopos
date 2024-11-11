@@ -48,6 +48,11 @@ const getUser = asyncHandler(async (req, res) => {
     return res.status(status).json(result);
 });
 
+const buyHammer = asyncHandler(async (req, res) => {
+    const { status, result } = await authService.buyHammer(req);
+    return res.status(status).json(result);
+});
+
 
 module.exports = {
     userLogin,
@@ -58,6 +63,7 @@ module.exports = {
     buySkin,
     savePoints,
     getRanking,
-    getUser
+    getUser,
+    buyHammer
 
 }

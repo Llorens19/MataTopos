@@ -48,7 +48,12 @@ const userSchema = new mongoose.Schema({
     points: {
         type: Number,
         default: 0
-    }
+    },
+    hammers: [{
+            type: Number,
+            default: 0
+        }
+    ]
 },
     {
         timestamps: true
