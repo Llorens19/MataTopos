@@ -37,7 +37,7 @@ const buyHammer = (hammer, price) => {
             console.log(data);
             if (data.user) {
                 localStorage.setItem('hammer', JSON.stringify(data.user));
-                userHammers();
+                window.location.reload();
                 
             } else {
                 alert("No tienes suficientes monedas");
@@ -113,7 +113,7 @@ const checkSelectedHammer = () => {
     const hammerElement = document.getElementById(`hammer_${hammer}`);
     if (hammerElement) {
         hammerElement.classList.remove('boton_selecionar_martillo', 'boton_comprar_martillo');
-        hammerElement.classList.add('boton_selecionado');
+        hammerElement.classList.add('boton_selecionado_martillo');
         hammerElement.innerHTML = 'Seleccionar';
     }
     
@@ -175,14 +175,14 @@ const selectHammer = () => {
             const hammer = event.target.getAttribute('hammer');
             localStorage.setItem('hammer', hammer);
             
-            document.querySelectorAll('.boton_selecionado').forEach(element => {
-                element.classList.remove('boton_selecionado');
+            document.querySelectorAll('.boton_selecionado_martillo').forEach(element => {
+                element.classList.remove('boton_selecionado_martillo');
                 element.classList.add('boton_selecionar_martillo');
                 event.target.innerHTML = 'Seleccionar';
             });
             
             event.target.classList.remove('boton_selecionar_martillo');
-            event.target.classList.add('boton_selecionado');
+            event.target.classList.add('boton_selecionado_martillo');
             event.target.innerHTML = 'Seleccionar'; 
             selectHammer();
             

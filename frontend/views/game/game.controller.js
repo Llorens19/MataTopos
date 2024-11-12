@@ -268,11 +268,32 @@ const getUser = () => {
         });
 }
 
+const loadHammerCursor = () => {
+    const hammer = JSON.parse(localStorage.getItem('hammer')) || 0;
+    document.body.style.cursor = `url("../../assets/martillo/martillo${hammer}.png"), auto`;
+
+    document.body.addEventListener('mousedown', () => {
+        document.body.style.cursor = `url("../../assets/martillo/martillo_golpeando${hammer}.png"), auto`;
+    });
+    document.body.addEventListener('mouseup', () => {
+        document.body.style.cursor = `url("../../assets/martillo/martillo${hammer}.png"), auto`;
+    });
+}
+
+
+
 
 document.addEventListener('DOMContentLoaded', (event) => {
     getUser();
     buttons();
+    loadHammerCursor();
+
 });
+
+
+
+
+
 
 if (localStorage.getItem('token') === null) {
     window.location.href = '../login/login.view.html';

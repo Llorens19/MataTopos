@@ -9,14 +9,11 @@
     font-family: 'Press Start 2P', sans-serif;
     font-size: 10px;
     color: #fff;
-    cursor: url('../../assets/img/martillo.png'), auto !important;
+   
     
 
 }
 
-*:active {
-    cursor: url('../../assets/img/martillo_golepeando.png'), auto !important;
-}
 
 img {
     -webkit-user-drag: none;

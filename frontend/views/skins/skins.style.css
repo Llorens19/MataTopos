@@ -64,7 +64,7 @@ body {
     font-size: 1.8em;
     color: #333;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
 }
 
 .galeria {
@@ -138,7 +138,8 @@ body {
         grid-template-columns: 1fr;
     }
 }
-.boton_selecionado {
+.boton_selecionado,
+.boton_selecionado_martillo {
     background-color: #4370eb;
     color: #fff;
     border: none;
@@ -149,7 +150,8 @@ body {
     transition: background-color 0.3s;
 }
 
-.boton_selecionado:hover {
+.boton_selecionado,
+.boton_selecionado_martillo:hover {
     background-color: #265cf0;
 }
 
@@ -190,7 +192,8 @@ body {
     gap: 30px;
 }
 
-.enlace {
+.enlace,
+.volver {
     color: #fff;
     text-decoration: none;
     font-size: 1em;
@@ -206,6 +209,10 @@ body {
 
 .enlace-activo {
     background-color: #ff6b6b;
+    color: #fff;
+}
+.volver {
+    background-color: #6bb0ff;
     color: #fff;
 }
 
@@ -262,3 +269,4 @@ body {
 .boton_selecionar_martillo:hover {
     background-color: #a6bbf4;
 }
+
