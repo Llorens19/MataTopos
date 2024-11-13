@@ -196,7 +196,9 @@ const moleClick = () => {
 
 
 
-const gameOver = () => {
+const gameOver = async() => {
+    await textoGameOver();
+    await botes()
     document.getElementById('play').style.display = '';
     hideAllMoles();
     saveCoins();
@@ -279,6 +281,63 @@ const loadHammerCursor = () => {
         document.body.style.cursor = `url("../../assets/martillo/martillo${hammer}.png"), auto`;
     });
 }
+
+const textoGameOver = () => {
+    return new Promise((resolve) => {
+        const gameOverText = document.getElementById("game-over");
+        
+        gameOverText.classList.remove("oculto"); 
+        gameOverText.style.animation = "parpadeo 0.2s steps(1) 5"; 
+
+        setTimeout(() => {
+            gameOverText.classList.add("oculto");
+            resolve(); 
+        }, 1000);
+    });
+};
+
+const botes = () => {
+    return new Promise((resolve) => {
+        let bonus = 0;
+        let message = "";
+
+        if (points >= 4000) {
+            bonus = 40;
+            message = "+40";
+        } else if (points >= 3000) {
+            bonus = 30;
+            message = "+30";
+        } else if (points >= 2000) {
+            bonus = 20;
+            message = "+20";
+        } else if (points >= 1000) {
+            bonus = 10;
+            message = "+10";
+        }
+
+        if (bonus > 0) {
+            const bote = document.getElementById("bote");
+            document.getElementById("cant_bote").innerText = message;
+            bote.style.display = 'flex';
+
+            setTimeout(() => {
+                bote.classList.add("animate"); 
+
+                bote.addEventListener('animationend', () => {
+                    bote.style.display = 'none';
+                    bote.classList.remove("animate"); 
+                    coins += bonus; 
+                    document.getElementById('coins').innerText = coins;
+                    resolve();
+                }, { once: true });
+                
+            }, 1000); 
+
+        } else {
+            resolve(); 
+        }
+    });
+};
 
 
 

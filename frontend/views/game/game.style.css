@@ -270,3 +270,56 @@ button {
     transform: rotate(3deg);
     transition: all 0.5s ease;
 }
+
+.game_over {
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 80px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    opacity: 0;
+    animation: parpadeo 0.2s linear infinite;
+    font-weight: bold;  
+}
+
+.oculto {
+    display: none;
+}
+
+@keyframes parpadeo {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes mover {
+    0% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -200%); 
+        opacity: 0;
+    }
+}
+
+.bote {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    text-align: center;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.bote p {
+    color: #ffdd00;
+    text-shadow: 2px 2px 4px #000;
+    font-size: 30px;
+}
+
+.bote.animate {
+    animation: mover 1s forwards; 
+}
