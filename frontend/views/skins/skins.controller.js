@@ -11,8 +11,17 @@ const buySkin = (skin, price) => {
         .then(data => {
             console.log(data);
             if (data.user) {
+                
                 localStorage.setItem('user', JSON.stringify(data.user));
-                window.location.reload();
+                localStorage.setItem('skin', skin);
+                document.getElementById('galeria-topos').innerHTML = '';
+                userSkins();
+                
+                menu();
+                loadCoine();
+                buttonBuy();
+                selectSkin();
+                
             } else {
                 alert("No tienes suficientes monedas");
             }
@@ -20,6 +29,35 @@ const buySkin = (skin, price) => {
         .catch((error) => {
             console.error('Error:', error);
         });
+}
+
+
+const getUserInfo = () => {
+
+    fetch(`http://localhost:4000/user`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${localStorage.getItem('token')}`
+        }
+    })
+        .then(res => res.json())
+        .then(data => {
+            localStorage.setItem('user', JSON.stringify(data.user));
+            console.log(data);
+            userSkins();
+            userHammers();
+            menu();
+            loadCoine();
+            buttonBuy();
+            buttonBuyHammer();
+            selectSkin();
+            selectHammer();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
 }
 
 
@@ -36,9 +74,17 @@ const buyHammer = (hammer, price) => {
         .then(data => {
             console.log(data);
             if (data.user) {
-                localStorage.setItem('hammer', JSON.stringify(data.user));
-                window.location.reload();
-                
+                localStorage.setItem('user', JSON.stringify(data.user));
+                //window.location.reload();
+                console.log(hammer);
+                localStorage.setItem('hammer', hammer);
+                document.getElementById('galeria-martillos').innerHTML = '';
+                userHammers();
+                selectHammer();
+                checkSelectedHammer();
+                buttonBuy();
+                buttonBuyHammer();
+
             } else {
                 alert("No tienes suficientes monedas");
             }
@@ -50,6 +96,7 @@ const buyHammer = (hammer, price) => {
 
 const userSkins = () => {
     const skins = JSON.parse(localStorage.getItem('user')).skins;
+    console.log(skins);
     skins.push(0);
 
     for (let i = 0; i < 6; i++) {
@@ -73,6 +120,7 @@ const userSkins = () => {
 
 const userHammers = () => {
     const hammers = JSON.parse(localStorage.getItem('user')).hammers;
+    console.log(hammers);
     hammers.push(0);
 
     for (let i = 0; i < 6; i++) {
@@ -105,20 +153,19 @@ const checkSelectedSkin = () => {
 }
 
 const checkSelectedHammer = () => {
-    
-    const hammers = JSON.parse(localStorage.getItem('user')).hammers;
-    
+
+
     const hammer = localStorage.getItem('hammer') || 0;
-    
+
     const hammerElement = document.getElementById(`hammer_${hammer}`);
     if (hammerElement) {
         hammerElement.classList.remove('boton_selecionar_martillo', 'boton_comprar_martillo');
         hammerElement.classList.add('boton_selecionado_martillo');
         hammerElement.innerHTML = 'Seleccionar';
     }
-    
-    
-    
+
+
+
 }
 
 const buttonBuy = () => {
@@ -151,19 +198,19 @@ const selectSkin = () => {
         button.addEventListener('click', (event) => {
             const skin = event.target.getAttribute('skin');
             localStorage.setItem('skin', skin);
-           
+
             document.querySelectorAll('.boton_selecionado').forEach(element => {
                 element.classList.remove('boton_selecionado');
                 element.classList.add('boton_selecionar');
                 event.target.innerHTML = 'Seleccionar';
             });
-            
+
             event.target.classList.remove('boton_selecionar');
             event.target.classList.add('boton_selecionado');
             event.target.innerHTML = 'Seleccionar';
             selectSkin();
 
-            
+
         });
     });
 }
@@ -174,32 +221,32 @@ const selectHammer = () => {
         button.addEventListener('click', (event) => {
             const hammer = event.target.getAttribute('hammer');
             localStorage.setItem('hammer', hammer);
-            
+
             document.querySelectorAll('.boton_selecionado_martillo').forEach(element => {
                 element.classList.remove('boton_selecionado_martillo');
                 element.classList.add('boton_selecionar_martillo');
                 event.target.innerHTML = 'Seleccionar';
             });
-            
+
             event.target.classList.remove('boton_selecionar_martillo');
             event.target.classList.add('boton_selecionado_martillo');
-            event.target.innerHTML = 'Seleccionar'; 
+            event.target.innerHTML = 'Seleccionar';
             selectHammer();
-            
-            
+
+
         });
     });
 }
 
 
-const handleNavigation = () => {
+const menu = () => {
     const linkTopos = document.getElementById('link-topos');
     const linkMartillos = document.getElementById('link-martillos');
 
     linkTopos.addEventListener('click', () => {
         document.getElementById('seccion-topos').style.display = 'block';
         document.getElementById('seccion-martillos').style.display = 'none';
-        
+
         linkTopos.classList.add('enlace-activo');
         linkMartillos.classList.remove('enlace-activo');
     });
@@ -207,7 +254,7 @@ const handleNavigation = () => {
     linkMartillos.addEventListener('click', () => {
         document.getElementById('seccion-topos').style.display = 'none';
         document.getElementById('seccion-martillos').style.display = 'block';
-        
+
         linkMartillos.classList.add('enlace-activo');
         linkTopos.classList.remove('enlace-activo');
     });
@@ -221,12 +268,6 @@ const loadCoine = () => {
 
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    userSkins();
-    userHammers(); 
-    handleNavigation(); 
-    loadCoine(); 
-    buttonBuy(); 
-    buttonBuyHammer();
-    selectSkin(); 
-    selectHammer();
+    getUserInfo();
+
 });

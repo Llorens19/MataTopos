@@ -80,10 +80,9 @@ const increasePoints = () => {
     }
     document.getElementById('points').innerText = points;
     document.getElementById('coins').innerText = coins;
-    speed = speed - 100;
+
+    speed = speed > 300 ? speed - 100: speed ;
 }
-
-
 
 
 const hideMole = (idMole) => {
@@ -196,7 +195,7 @@ const moleClick = () => {
 
 
 
-const gameOver = async() => {
+const gameOver = async () => {
     await textoGameOver();
     await botes()
     document.getElementById('play').style.display = '';
@@ -285,13 +284,13 @@ const loadHammerCursor = () => {
 const textoGameOver = () => {
     return new Promise((resolve) => {
         const gameOverText = document.getElementById("game-over");
-        
-        gameOverText.classList.remove("oculto"); 
-        gameOverText.style.animation = "parpadeo 0.2s steps(1) 5"; 
+
+        gameOverText.classList.remove("oculto");
+        gameOverText.style.animation = "parpadeo 0.2s steps(1) 5";
 
         setTimeout(() => {
             gameOverText.classList.add("oculto");
-            resolve(); 
+            resolve();
         }, 1000);
     });
 };
@@ -321,20 +320,20 @@ const botes = () => {
             bote.style.display = 'flex';
 
             setTimeout(() => {
-                bote.classList.add("animate"); 
+                bote.classList.add("animate");
 
                 bote.addEventListener('animationend', () => {
                     bote.style.display = 'none';
-                    bote.classList.remove("animate"); 
-                    coins += bonus; 
+                    bote.classList.remove("animate");
+                    coins += bonus;
                     document.getElementById('coins').innerText = coins;
                     resolve();
                 }, { once: true });
-                
-            }, 1000); 
+
+            }, 1000);
 
         } else {
-            resolve(); 
+            resolve();
         }
     });
 };
