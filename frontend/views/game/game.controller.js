@@ -28,7 +28,7 @@ const buttons = () => {
     document.getElementById('play').addEventListener('click', startGame);
     document.getElementById('logout').addEventListener('click', () => {
         localStorage.clear();
-        window.location.href = '../login/login.view.html';
+        window.location.href = '../home/home.view.html';
     });
     document.getElementById('button_profile').addEventListener('click', () => {
         localStorage.setItem('userProfile', localStorage.getItem('user'));

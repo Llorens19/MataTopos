@@ -1,131 +1,145 @@
-/* Reset y configuración general */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Press Start 2P', sans-serif;
 }
 
 body {
-    background-image: url('../../assets/img/inicio.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-family: 'Press Start 2P', sans-serif;
-    min-height: 100vh;
+    background-color: #f3f3f3;
+    color: #333;
 }
 
-.container {
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    max-width: 600px;
-    height: 30vh;
-    margin-top: 10vh;
+.encabezado {
+    background-color: #111;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: relative;
 }
 
-
-.logo {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.logo h1 {
-    color: #000000;
+.titulo {
     font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.logo p {
-    color: #0e038f;
-    font-size: 1em;
+    margin: 0;
 }
 
 .botones {
+    position: absolute;
+    right: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    width: 100%;
-    flex-direction: row;
+    gap: 10px;
 }
 
-.register,
-.login {
-    background-color: red;
+.btn {
+    background-color: #ff6b6b;
+    color: white;
     border: none;
-    border-radius: 10px;
-    color: #ffffff;
-    padding: 15px;
-    font-size: 1.2em;
+    padding: 8px 16px;
+    border-radius: 5px;
     cursor: pointer;
-    width: 45%;
-    transition: transform 0.5s ease;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #ff4b4b;
+}
+
+.contenido {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.seccion {
+    background-color: white;
+    padding: 20px;
     text-align: center;
 }
 
-.register {
-    background-color: red;
+.subtitulo {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-.login {
-    background-color: rgb(9, 255, 0);
+.descripcion {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 20px;
 }
 
-button:hover {
-    transform: scale(1.1) rotate(3deg);
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
 }
 
-@media (max-width: 768px) {
-    .container {
-        width: 90%;
-        height: 65vh;
-    }
-
-    .logo h1 {
-        font-size: 1.8em;
-    }
-
-    .register,
-    .login {
-        font-size: 1em;
-        padding: 10px;
-    }
-
-    .botones {
-        flex-direction: column;
-    }
+.tarjeta-skin {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 120px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 480px) {
-    .container {
-        width: 95%;
-        height: 70vh;
-    }
+.tarjeta-skin:hover {
+    transform: scale(1.05);
+}
 
-    .logo h1 {
-        font-size: 1.5em;
-    }
+.tarjeta-skin img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
 
-    .logo p {
-        font-size: 0.9em;
-    }
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
-    .register,
-    .login {
-        font-size: 1.2em;
-        padding: 8px;
-        width: 100%;
-    }
+.tabla th, .tabla td {
+    padding: 12px;
+    text-align: center;
+    font-size: 0.85em;
+}
 
-    .botones {
-        flex-direction: column;
-    }
+.tabla th {
+    background-color: #000;
+    color: #fff;
+}
+
+.tabla tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tabla tr:hover {
+    background-color: #ddd;
+}
+
+.img_player {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.contenedor_monedas {
+    display: flex;
+    align-items: center;
+}
+
+.img_moneda {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
 }

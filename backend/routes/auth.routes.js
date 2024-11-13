@@ -14,7 +14,7 @@ module.exports = (app) => {
 
     app.put('/user/buy', verifyJWT, buySkin);
 
-    app.get('/ranking', verifyJWT, getRanking);
+    app.get('/ranking',  getRanking);
 
     app.put('/user/points', verifyJWT, savePoints);
     

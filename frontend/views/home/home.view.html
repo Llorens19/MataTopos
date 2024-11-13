@@ -4,28 +4,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whac-a-Mole</title>
-    <link rel="stylesheet" href="home.style.css">
+    <title>Mata Topos - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="home.controller.js" defer></script>
+    <link rel="stylesheet" href="home.style.css">
 </head>
 
+
 <body>
-    <div class="logo">
-        <h1>Whac-a-Mole</h1>
-        <p>¿Que puntuación eres capaz de hacer?</p>
-    </div>
-    <div class="container">
-
-
-
+    <header class="encabezado">
+        <h1 class="titulo">Mata Topos</h1>
         <div class="botones">
-            <button class="register"
-                onclick="window.location.href='../register/register.view.html'">Registrarse</button>
-            <button class="login" onclick="window.location.href='../login/login.view.html'">Iniciar
-                Sesión</button>
+            <button class="btn" id="register-btn">Register</button>
+            <button class="btn" id="login-btn">Login</button>
         </div>
+    </header>
 
-    </div>
+    <main class="contenido">
+        <section class="seccion skins-section">
+            <h2 class="subtitulo">Skins Disponibles</h2>
+            <p class="descripcion">Personaliza tu experiencia con estas skins únicas.</p>
+            <div class="galeria" id="galeria-skins">
+                
+                <div class="tarjeta-skin">
+                    <img src="../../assets/img/topo_0.png" alt="Nombre de la Skin" class="imagen-skin">
+         
+                </div>
+                <div class="tarjeta-skin">
+                    <img src="../../assets/img/topo_1.png" alt="Nombre de la Skin" class="imagen-skin">
+                  
+                    
+                </div>
+                <div class="tarjeta-skin">
+                    <img src="../../assets/img/topo_2.png" alt="Nombre de la Skin" class="imagen-skin">
+                   
+                </div>
+                <div class="tarjeta-skin">
+                    <img src="../../assets/img/topo_3.png" alt="Nombre de la Skin" class="imagen-skin">
+                 
+                  
+                </div>
+                <div class="tarjeta-skin">
+                    <img src="../../assets/img/topo_4.png" alt="Nombre de la Skin" class="imagen-skin">
+                   
+                </div>
+                <div class="tarjeta-skin">
+                    <img src="../../assets/img/topo_5.png" alt="Nombre de la Skin" class="imagen-skin">
+                
+                    
+                </div>
+                
+                
+                
+                
+            </div>
+        </section>
+
+        <section class="seccion ranking-section">
+            <h2 class="subtitulo">Ranking de Jugadores</h2>
+            <p class="descripcion">Compite y alcanza la cima del ranking.</p>
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Posición</th>
+                        <th>Imagen</th>
+                        <th>Jugador</th>
+                        <th>Puntaje</th>
+                        <th>Monedas</th>
+                    </tr>
+                </thead>
+                <tbody class="cuerpo_tabla">
+                    <!-- Filas del ranking generadas dinámicamente aquí -->
+                </tbody>
+            </table>
+        </section>
+    </main>
 </body>
 
 </html>
