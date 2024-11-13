@@ -18,11 +18,13 @@ body {
     align-items: center;
     color: #fff;
     position: relative;
+    flex-wrap: wrap;
 }
 
 .titulo {
     font-size: 2em;
     margin: 0;
+    text-align: center;
 }
 
 .botones {
@@ -142,4 +144,68 @@ body {
     width: 20px;
     height: 20px;
     margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+    .encabezado {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .titulo {
+        font-size: 1.5em;
+    }
+
+    .botones {
+        position: static;
+        margin-top: 10px;
+    }
+
+    .contenido {
+        max-width: 90%;
+    }
+
+    .seccion {
+        padding: 15px;
+    }
+
+    .galeria {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tarjeta-skin {
+        width: 80%;
+        max-width: 180px;
+    }
+
+    .tabla th, .tabla td {
+        padding: 8px;
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo {
+        font-size: 1.2em;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+
+    .galeria {
+        gap: 10px;
+    }
+
+    .tarjeta-skin {
+        width: 100%;
+        max-width: 150px;
+    }
+
+    .tabla th, .tabla td {
+        font-size: 0.75em;
+    }
 }
