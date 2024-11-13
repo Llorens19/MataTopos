@@ -100,6 +100,8 @@ const buySkin = async (req) => {
     if (!skin || !price) return resp(400, { message: "Skin and Price are required" });
     const user = await authRepo.findOneUser({ email: req.userEmail });
     console.log(user);
+    const skins = user.skins;
+    if(skins.includes(skin)) return resp(400, { message: "You already have this skin" });
     if (user.coins < price) return resp(400, { message: "Not enough coins" });
     user.coins -= price;
     user.skins.push(skin);
@@ -134,6 +136,8 @@ const buyHammer = async (req) => {
     const { hammer, price } = req.body;
     if (!hammer || !price) return resp(400, { message: "Hammer and Price are required" });
     const user = await authRepo.findOneUser({ email: req.userEmail });
+    const hammers = user.hammers;
+    if(hammers.includes(hammer)) return resp(400, { message: "You already have this hammer" });
     if (user.coins < price) return resp(400, { message: "Not enough coins" });
     user.coins -= price;
     user.hammers.push(hammer);

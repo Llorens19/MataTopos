@@ -278,6 +278,7 @@ button {
     opacity: 0;
     animation: parpadeo 0.2s linear infinite;
     font-weight: bold;  
+    text-shadow: 2px 2px 4px #ff0000;
 }
 
 .oculto {
