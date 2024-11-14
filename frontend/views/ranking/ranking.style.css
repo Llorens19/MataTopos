@@ -1,6 +1,7 @@
 * {
     font-family: 'Press Start 2P', sans-serif;
 }
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
@@ -8,6 +9,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 
 .encabezado {
     background-color: #000;
@@ -21,6 +23,7 @@ body {
     font-size: 2em;
 }
 
+
 .contenido_principal {
     display: flex;
     justify-content: center;
@@ -29,11 +32,13 @@ body {
 
 .seccion_ranking {
     width: 80%;
+    max-width: 1000px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
 }
+
 
 .tabla_ranking {
     width: 100%;
@@ -67,6 +72,27 @@ body {
     width: 20%;
 }
 
+.tabla_ranking th,
+.tabla_ranking td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+}
+
+.img_player {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: #000 4px solid;
+}
+
+.img_moneda {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
 .pie_pagina {
     background-color: #333;
     color: white;
@@ -77,29 +103,73 @@ body {
 .texto_pie {
     margin: 0;
 }
+
 .contenedor_monedas {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.img_player {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-right: 10px;
-    border:#000 4px solid;
+@media (max-width:950px) {
+    .titulo_principal {
+        font-size: 1.5em;
+    }
+
+    .seccion_ranking {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .img_player {
+        width: 80px;
+        height: 80px;
+    }
+
+    .img_moneda {
+        width: 25px;
+        height: 25px;
+    }
+
+    .posicion,
+    .nombre_jugador,
+    .puntaje {
+        padding: 8px;
+    }
 }
 
-.tabla_ranking th,
-.tabla_ranking td {
-    text-align: center;
-    vertical-align: middle;
-    padding: 10px;
-}
 
-.img_moneda {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
+@media (max-width: 800px) {
+    .contenido_principal {
+        padding: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .seccion_ranking {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .titulo_principal {
+        font-size: 1.2em;
+    }
+
+    .img_player {
+        width: 60px;
+        height: 60px;
+        margin-right: 5px;
+    }
+
+    .img_moneda {
+        width: 20px;
+        height: 20px;
+    }
+
+    .encabezado_tabla th,
+    .posicion,
+    .nombre_jugador,
+    .puntaje {
+        font-size: 0.9em;
+        padding: 5px;
+    }
 }
